@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&family=Playfair+Display:wght@400;600;700;800&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #0B1120;
+  --color-secondary: #1e293b;
+  --color-accent: #D4AF37;
+  --color-background: #f8fafc;
+  --color-surface: #ffffff;
+
+  --font-heading: Outfit, sans-serif;
+  --font-serif: "Playfair Display", serif;
+  --font-sans: Inter, sans-serif;
+
+  --animate-fade-in: fadeIn 0.5s ease-out forwards;
+  --animate-slide-up: slideUp 0.5s ease-out forwards;
+
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes slideUp {
+    0% {
+      transform: translateY(20px);
+      opacity: 0;
+    }
+
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+}
+
+@layer components {
+  .glass {
+    @apply bg-white/10 backdrop-blur-md border border-white/20 shadow-xl;
+  }
+
+  .glass-dark {
+    @apply bg-black/30 backdrop-blur-md border border-white/10 shadow-xl;
+  }
+
+  .btn-primary {
+    @apply px-6 py-3 rounded-full font-bold bg-accent text-primary transition-all duration-300 hover:opacity-90 hover:scale-105 active:scale-95 shadow-lg shadow-accent/20;
+  }
+
+  .btn-outline {
+    @apply px-6 py-3 rounded-full font-bold border-2 border-white text-white transition-all duration-300 hover:bg-white hover:text-primary hover:scale-105 active:scale-95;
+  }
+}
+
+body {
+  @apply bg-background text-secondary font-sans antialiased overflow-x-hidden;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @apply font-heading text-primary;
+}
